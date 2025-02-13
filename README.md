@@ -72,7 +72,7 @@
         }
         #child {
             position: fixed;
-            top: 60%;
+            top: 40%;
             left: 50%;
             margin-top: -75px;
             margin-left: -100px;
@@ -89,7 +89,7 @@
 </head>
 <body>
     <div id="child">
-        <h4></h4>
+        <h4>翁嘉芯，我喜欢你</h4>
     </div>
     <!--翁嘉芯，我喜欢你❤！！！-->
     <canvas id="pinkboard"></canvas>

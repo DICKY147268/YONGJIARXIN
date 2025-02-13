@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -98,7 +98,7 @@
             color: #f584b7;
             position: relative;
             top: 0;
-            left: -65px;
+            left: -50x;
         }
     </style>
 </head>

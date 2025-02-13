@@ -97,7 +97,7 @@
             font-size: 40px;
             color: #f584b7;
             position: relative;
-            top: -20px;
+            top: -70px;
             left: -65px;
         }
     </style>

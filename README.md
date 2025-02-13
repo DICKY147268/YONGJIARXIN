@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 <head>
-    
+    <title>I love you</title>
 </head>
+
 <body> <canvas id="canvas"></canvas>
     <style type="text/css">
         body {
@@ -15,9 +17,13 @@
     <script type="text/javascript">
         var canvas = document.getElementById('canvas');
         var ctx = canvas.getContext('2d');
+
+
         canvas.height = window.innerHeight;
         canvas.width = window.innerWidth;
+
         var texts = 'I LOVE U'.split('');
+
         var fontSize = 16;
         var columns = canvas.width / fontSize;
         // 计算输出文字时坐标
@@ -26,6 +32,7 @@
         for (var x = 0; x < columns; x++) {
             drops[x] = 1;
         }
+
         function draw() {
             //让背景逐渐由透明到不透明
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
@@ -37,18 +44,22 @@
             for (var i = 0; i < drops.length; i++) {
                 var text = texts[Math.floor(Math.random() * texts.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
                 if (drops[i] * fontSize > canvas.height || Math.random() > 0.95) {
                     drops[i] = 0;
                 }
+
                 drops[i]++;
             }
         }
         setInterval(draw, 33);
     </script>
 </body>
+
 </html>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <HTML>
+
 <HEAD>
     <TITLE> love</TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -65,33 +76,38 @@
             margin: 0;
             background: rgb(0, 0, 0);
         }
+
         canvas {
             position: absolute;
             width: 100%;
             height: 100%;
         }
+
         #child {
             position: fixed;
             top: 50%;
             left: 50%;
             margin-top: -75px;
             margin-left: -100px;
+
         }
+
         h4 {
             font-family: "STKaiti";
             font-size: 40px;
             color: #f584b7;
             position: relative;
-            top: -60px;
+            top: -30;
             left: -65px;
         }
     </style>
 </head>
+
 <body>
     <div id="child">
-        <h4>翁嘉芯，我喜欢你</h4>
+        <h4>翁嘉芯，我喜欢你❤</h4>
     </div>
-    <!--翁嘉芯，我喜欢你❤！！！-->
+    <!--翁嘉芯！！！-->
     <canvas id="pinkboard"></canvas>
     <!-- <canvas id= "canvas"></canvas>  -->
     <script>
@@ -107,10 +123,12 @@
                 size: 30, // particle size in pixels
             },
         };
+
         /*
          * RequestAnimationFrame polyfill by Erik Möller
          */
         (function () { var b = 0; var c = ["ms", "moz", "webkit", "o"]; for (var a = 0; a < c.length && !window.requestAnimationFrame; ++a) { window.requestAnimationFrame = window[c[a] + "RequestAnimationFrame"]; window.cancelAnimationFrame = window[c[a] + "CancelAnimationFrame"] || window[c[a] + "CancelRequestAnimationFrame"] } if (!window.requestAnimationFrame) { window.requestAnimationFrame = function (h, e) { var d = new Date().getTime(); var f = Math.max(0, 16 - (d - b)); var g = window.setTimeout(function () { h(d + f) }, f); b = d + f; return g } } if (!window.cancelAnimationFrame) { window.cancelAnimationFrame = function (d) { clearTimeout(d) } } }());
+
         /*
          * Point class
          */
@@ -138,6 +156,7 @@
             };
             return Point;
         })();
+
         /*
          * Particle class
          */
@@ -174,6 +193,7 @@
             };
             return Particle;
         })();
+
         /*
          * ParticlePool class
          */
@@ -182,6 +202,7 @@
                 firstActive = 0,
                 firstFree = 0,
                 duration = settings.particles.duration;
+
             function ParticlePool(length) {
                 // create and populate particle pool
                 particles = new Array(length);
@@ -190,6 +211,7 @@
             }
             ParticlePool.prototype.add = function (x, y, dx, dy) {
                 particles[firstFree].initialize(x, y, dx, dy);
+
                 // handle circular queue
                 firstFree++;
                 if (firstFree == particles.length) firstFree = 0;
@@ -198,6 +220,7 @@
             };
             ParticlePool.prototype.update = function (deltaTime) {
                 var i;
+
                 // update active particles
                 if (firstActive < firstFree) {
                     for (i = firstActive; i < firstFree; i++)
@@ -209,11 +232,14 @@
                     for (i = 0; i < firstFree; i++)
                         particles[i].update(deltaTime);
                 }
+
                 // remove inactive particles
                 while (particles[firstActive].age >= duration && firstActive != firstFree) {
                     firstActive++;
                     if (firstActive == particles.length) firstActive = 0;
                 }
+
+
             };
             ParticlePool.prototype.draw = function (context, image) {
                 // draw active particles
@@ -230,6 +256,7 @@
             };
             return ParticlePool;
         })();
+
         /*
          * Putting it all together
          */
@@ -238,6 +265,7 @@
                 particles = new ParticlePool(settings.particles.length),
                 particleRate = settings.particles.length / settings.particles.duration, // particles/sec
                 time;
+
             // get point on heart with -PI <= t <= PI
             function pointOnHeart(t) {
                 return new Point(
@@ -245,6 +273,7 @@
                     130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
                 );
             }
+
             // creating the particle image using a dummy canvas
             var image = (function () {
                 var canvas = document.createElement('canvas'),
@@ -277,16 +306,20 @@
                 image.src = canvas.toDataURL();
                 return image;
             })();
+
             // render that thing!
             function render() {
                 // next animation frame
                 requestAnimationFrame(render);
+
                 // update time
                 var newTime = new Date().getTime() / 1000,
                     deltaTime = newTime - (time || newTime);
                 time = newTime;
+
                 // clear canvas
                 context.clearRect(0, 0, canvas.width, canvas.height);
+
                 // create new particles
                 var amount = particleRate * deltaTime;
                 for (var i = 0; i < amount; i++) {
@@ -294,23 +327,31 @@
                     var dir = pos.clone().length(settings.particles.velocity);
                     particles.add(canvas.width / 2 + pos.x, canvas.height / 2 - pos.y, dir.x, -dir.y);
                 }
+
                 // update and draw particles
                 particles.update(deltaTime);
                 particles.draw(context, image);
             }
+
             // handle (re-)sizing of the canvas
             function onResize() {
                 canvas.width = canvas.clientWidth;
                 canvas.height = canvas.clientHeight;
             }
             window.onresize = onResize;
+
             // delay rendering bootstrap
             setTimeout(function () {
                 onResize();
                 render();
             }, 10);
         })(document.getElementById('pinkboard'));
+
+
+
+
     </script>
+
 </BODY>
 <!--                           
 <audio controls>
@@ -318,3 +359,7 @@
   <source src="Alan Walker-Faded.mp3" type="audio/mpeg">
 </audio >
      -->
+
+
+</HTML>
+

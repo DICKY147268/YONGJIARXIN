@@ -72,7 +72,7 @@
         }
         #child {
             position: fixed;
-            top: 40%;
+            top: 50%;
             left: 50%;
             margin-top: -75px;
             margin-left: -100px;
@@ -82,7 +82,7 @@
             font-size: 40px;
             color: #f584b7;
             position: relative;
-            top: -70px;
+            top: -60px;
             left: -65px;
         }
     </style>

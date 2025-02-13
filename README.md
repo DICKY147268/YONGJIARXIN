@@ -91,7 +91,7 @@
     <div id="child">
         <h4>翁嘉芯，我喜欢你</h4>
     </div>
-    <!--这里写名字❤！！！-->
+    <!--翁嘉芯，我喜欢你❤！！！-->
     <canvas id="pinkboard"></canvas>
     <!-- <canvas id= "canvas"></canvas>  -->
     <script>

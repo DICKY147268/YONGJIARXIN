@@ -97,8 +97,8 @@
             font-size: 40px;
             color: #f584b7;
             position: relative;
-            top: 0;
-            left: -50x;
+            top: -40px;
+            left: -65px;
         }
     </style>
 </head>

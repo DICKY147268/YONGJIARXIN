@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
-    <title>I love you</title>
+    
 </head>
 <body> <canvas id="canvas"></canvas>
     <style type="text/css">
